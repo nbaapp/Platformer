@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private GameObject player;
     public float speed = 10;
     private bool positiveDirection;
+    public float timer = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,8 @@ public class Bullet : MonoBehaviour
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
 
         }
+
+        Destroy(gameObject, timer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
